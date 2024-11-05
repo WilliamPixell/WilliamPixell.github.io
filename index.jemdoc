@@ -1,0 +1,35 @@
+# jemdoc: menu{MENU}{index.html}
+= Xiaopeng Li 
+
+~~~
+{}{img_left}{img_xiaopeng.jpg}{alt text}{180px}{}{}
+Xiaopeng Li \n
+Position: Fifth Year Ph.D. Student\n 
+Affiliation: [https://www.ieor.columbia.edu/ Industrial Engineering and Operations Research (IEOR)], [https://www.columbia.edu/ Columbia University]  \n
+Contact: [xl3040@columbia.edu Email] \n
+Info: [CV.pdf CV], [https://scholar.google.com/citations?user=O3S8H_wAAAAJ&hl=en/ Google Scholar], [https://github.com/WilliamPixell Github] \n
+~~~
+
+== Research
+Advisor: Professor [https://sites.google.com/site/cedricjosz/ Cédric Josz] 
+
+My research interest lies in nonconvex optimization, differential equations, semi-algebraic geometry, with applications in low rank matrix recovery and neural networks. 
+
+== Publications 
+
+~~~
+{Preprints}
+- Cédric Josz, Lexiao Lai, Xiaopeng Li, [https://arxiv.org/abs/2408.07182 *Proximal random reshuffling under local Lipschitz continuity*]. \n
+Major revision in /Mathematics of Operations Research/. Preprint on ArXiv: [https://arxiv.org/pdf/2408.07182.pdf 2408.07182]. 
+- Cédric Josz, Xiaopeng Li, [https://arxiv.org/abs/2407.15044 *Singular perturbation in heavy ball dynamics*]. \n
+Major revision in /Journal of Dynamics and Differential Equations/. Preprint on ArXiv: [https://arxiv.org/pdf/2407.15044.pdf 2407.15044]. 
+~~~
+
+~~~
+{Journals}
+- Cédric Josz, Lexiao Lai, Xiaopeng Li, [https://doi.org/10.1137/23M1545720 *Convergence of the momentum method for semi-algebraic functions with locally Lipschitz gradients*]. \n
+/SIAM Journal on Optimization, 33/(4), 3012–3037. Preprint on ArXiv: [https://arxiv.org/pdf/2307.03331.pdf 2307.03331].   
+- Cédric Josz, Xiaopeng Li, [https://doi.org/10.1137/22M1479531 *Certifying the absence of spurious local minima at infinity*]. \n
+/SIAM Journal on Optimization, 33/(3), 1416–1439. Preprint on ArXiv: [https://arxiv.org/pdf/2303.03536.pdf 2303.03536]. 
+~~~
+
