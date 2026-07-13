@@ -4,6 +4,8 @@ table#tlayout {
     border: none;
     border-collapse: separate;
     background: white;
+    width: 100%;
+    table-layout: fixed;
 }
 
 body {
@@ -20,7 +22,7 @@ body {
 	padding-left: 8px;
 	padding-right: 8px;
 	font-size: 1.0em;
-	width: auto;
+	width: 180px;
 	white-space: nowrap;
     text-align: left;
     vertical-align: top;
@@ -142,6 +144,14 @@ h2 + h3 {
 h3 {
 	font-size: 110%;
 	border-bottom: none;
+}
+
+div.blockcontent h3 {
+	font-size: 95%;
+}
+
+#layout-content div.blockcontent h3:first-child {
+	margin-top: 0.3em;
 }
 
 p {
@@ -267,6 +277,103 @@ div.infoblock li p, div.infoblock dd p {
 
 div.infoblock p + p {
 	margin-top: 0.8em;
+}
+
+/* Multi-column lists inside a subtitled box. Rules are scoped per-course
+   via div.infoblock:nth-of-type(N) (2 = AIE6003, 3 = AIE1902, counting the
+   #toptitle div as 1) so a rule tuned for one course's label lengths can't
+   leak onto another course's list that happens to share the same h3
+   position, and so none of this can affect the Publications lists on the
+   About me page (which have no h3 subtitles at all). */
+
+/* AIE6003 Lecture Notes: two separate row-wrapping grids, one for the 1st
+   half of the semester (Weeks 1-8, through Midterm Review) and one for the
+   2nd half (Weeks 9-15). Being two independent grids guarantees the 2nd
+   half always starts on its own fresh row, regardless of how many columns
+   fit at a given window width. Column width is sized for labels like
+   "Week 4: Subgradient & Mirror Descent". */
+div.infoblock:nth-of-type(2) h3:nth-of-type(2) + ul,
+div.infoblock:nth-of-type(2) h3:nth-of-type(2) + ul + ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 0.2em 0.8em;
+	list-style-type: square;
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+
+/* Match the ~40px marker indent that Homework/Exam get for free from the
+   browser's default ul padding - grid items need it set explicitly since
+   list-style-position: inside otherwise puts the marker flush with the
+   box's left edge for every column, not just column 1. */
+div.infoblock:nth-of-type(2) h3:nth-of-type(2) + ul li,
+div.infoblock:nth-of-type(2) h3:nth-of-type(2) + ul + ul li {
+	padding-left: 1.4em;
+}
+
+div.infoblock:nth-of-type(2) h3:nth-of-type(2) + ul + ul {
+	margin-top: 0.6em;
+}
+
+/* AIE1902 Lecture Notes (Modules): same width as this box's Code Demos
+   list below, since label lengths are comparable ("Module 1: Intro to
+   Language Models & N-grams"). */
+div.infoblock:nth-of-type(3) h3:nth-of-type(2) + ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+	gap: 0.2em 1.5em;
+	list-style-type: square;
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+
+div.infoblock:nth-of-type(3) h3:nth-of-type(2) + ul li {
+	padding-left: 1.4em;
+}
+
+/* Homework list (AIE6003 box only): medium labels ("Assignment N Solutions"). */
+div.infoblock:nth-of-type(2) h3:nth-of-type(3) + ul {
+	-webkit-columns: 190px auto;
+	-moz-columns: 190px auto;
+	columns: 190px auto;
+	column-gap: 1.5em;
+}
+
+/* Exam list (AIE6003 box only): longest labels ("Sample Midterm Exam
+   Solutions"), fewer columns. */
+div.infoblock:nth-of-type(2) h3:nth-of-type(4) + ul {
+	-webkit-columns: 230px auto;
+	-moz-columns: 230px auto;
+	columns: 230px auto;
+	column-gap: 1.5em;
+}
+
+div.blockcontent h3 + ul li {
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid;
+}
+
+/* Code Demos list (AIE1902 box only): labels are longer than Homework's
+   ("Module 1: Transformers Examples | N-gram Model"), so it needs a wider
+   column to avoid wrapping to a second line. Scoped to the 3rd infoblock
+   on the page (AIE1902) so it doesn't affect AIE6003's Homework, which
+   shares the same h3:nth-of-type(3) position. Uses grid (not CSS multi-
+   column) so items fill in reading order - row by row, left to right -
+   instead of multi-column's top-to-bottom-per-column order. */
+div.infoblock:nth-of-type(3) h3:nth-of-type(3) + ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+	gap: 0.2em 1.5em;
+	list-style-type: square;
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+}
+
+div.infoblock:nth-of-type(3) h3:nth-of-type(3) + ul li {
+	padding-left: 1.4em;
 }
 
 div.codeblock > div.blockcontent {
